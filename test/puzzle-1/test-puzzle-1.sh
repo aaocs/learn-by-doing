@@ -5,7 +5,8 @@ SRC_DIR="$PROJECT_PATH/src/puzzle-1/"
 TEST_DIR="$PROJECT_PATH/test/puzzle-1/"
 
 test_should_print_two_duplicates() {
-  expected="(0000 0000 0000 0003, 0000 0000 0000 0001)"
+  expected="0000 0000 0000 0001,00000000-0000-0000-0000-000000000000
+0000 0000 0000 0003,00000000-0000-0000-0000-000000000000"
   actual=$("$SRC_DIR"/remove-duplicates.sh "$TEST_DIR"/res/one-duplicate.csv)
   assert_equals "$expected" "$actual"
 }
