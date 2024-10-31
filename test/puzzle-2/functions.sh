@@ -21,6 +21,6 @@ setup() {
 
 test_two_matching_groups_checked() {
   expected="z"
-  actual=$(match_patterns '[zsh]' 'z')
+  actual=$(get_letter_from_patterns '[zsh]' 'z')
   assert_equals "$expected" "$actual"
 }
