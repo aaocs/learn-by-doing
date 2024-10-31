@@ -1,22 +1,44 @@
+__check_regex_matches() {
+  chars="$1"
+  shift
+
+  for arg in "$@"; do
+    if [[ ! $chars =~ $arg ]]; then
+      return 1;
+    fi
+  done
+
+  return 0;
+}
+
 get_letter_from_patterns() {
   for letter in {a..z}; do
-    letter_matches_patterns=true
-
-    for arg in "$@"; do
-        if [[ ! $letter =~ $arg ]]; then
-          letter_matches_patterns=false
-          break
-        fi
-    done
-
-    if [[ $letter_matches_patterns = true ]]; then
+    if (__check_regex_matches "$letter" "$@"); then
       echo "$letter"
       return 0 # Terminate as soon as a letter matches.
     fi
   done
 }
 
-#A Bash array should be the last argument and only one array can be passed.
+#get_letter_from_patterns() {
+#  for letter in {a..z}; do
+#    letter_matches_patterns=true
+#
+#    for arg in "$@"; do
+#        if [[ ! $letter =~ $arg ]]; then
+#          letter_matches_patterns=false
+#          break
+#        fi
+#    done
+#
+#    if [[ $letter_matches_patterns = true ]]; then
+#      echo "$letter"
+#      return 0 # Terminate as soon as a letter matches.
+#    fi
+#  done
+#}
+
+# A Bash array should be the last argument and only one array can be passed.
 print_rows() {
   out=""
 

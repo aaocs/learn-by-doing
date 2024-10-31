@@ -21,7 +21,13 @@ setup() {
   . "$SRC_DIR/functions.sh"
 }
 
-test_two_matching_groups_checked() {
+test_get_letter_does_not_match() {
+  expected=""
+  actual=$(get_letter_from_patterns '_')
+  assert_equals "$expected" "$actual"
+}
+
+test_get_letter_matches_two_groups() {
   expected="z"
   actual=$(get_letter_from_patterns '[zsh]' 'z')
   assert_equals "$expected" "$actual"
