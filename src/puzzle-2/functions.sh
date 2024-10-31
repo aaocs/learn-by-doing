@@ -15,3 +15,8 @@ get_letter_from_patterns() {
     fi
   done
 }
+
+print_rows() {
+  # TODO.
+  echo -e "| z | a | p | y | o |\n| z | a | p | y | o |"
+}

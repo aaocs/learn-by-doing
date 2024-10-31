@@ -15,6 +15,8 @@ C3='(pe|rl)[yes][dart]'
 C4='([yaml])[wasm]{2}\1'
 C5='[net][ph]p?[^ts]?[rails]'
 
+letters_array=('z' 'a' 'p' 'y' 'o' 'z' 'a' 'p' 'y' 'o')
+
 setup() {
   . "$SRC_DIR/functions.sh"
 }
@@ -22,5 +24,11 @@ setup() {
 test_two_matching_groups_checked() {
   expected="z"
   actual=$(get_letter_from_patterns '[zsh]' 'z')
+  assert_equals "$expected" "$actual"
+}
+
+test_print_rows() {
+  expected="$(echo -e "| z | a | p | y | o |\n| z | a | p | y | o |")"
+  actual=$(print_rows "${letters_array[@]}")
   assert_equals "$expected" "$actual"
 }
