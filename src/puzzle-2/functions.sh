@@ -16,7 +16,20 @@ get_letter_from_patterns() {
   done
 }
 
+#A Bash array should be the last argument and only one array can be passed.
 print_rows() {
-  # TODO.
-  echo -e "| z | a | p | y | o |\n| z | a | p | y | o |"
+  out=""
+
+  arr=("$@") # Rebuild the array with suffixed arguments.
+  counter=0
+  for str in "${arr[@]}"; do
+    if ! ((counter % 5)); then
+      out+="\n|"
+    fi
+
+    out+=" $str |"
+    ((counter++))
+  done
+
+  echo -e "$out"
 }

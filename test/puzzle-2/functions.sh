@@ -28,7 +28,7 @@ test_two_matching_groups_checked() {
 }
 
 test_print_rows() {
-  expected="$(echo -e "| z | a | p | y | o |\n| z | a | p | y | o |")"
+  expected="$(echo -e "\n| z | a | p | y | o |\n| z | a | p | y | o |")"
   actual=$(print_rows "${letters_array[@]}")
   assert_equals "$expected" "$actual"
 }
