@@ -15,28 +15,37 @@ get_letter_from_patterns() {
   for letter in {a..z}; do
     if (__check_regex_matches "$letter" "$@"); then
       echo "$letter"
-      return 0 # Terminate as soon as a letter matches.
+      return 0 # Terminates on the first match.
     fi
   done
 }
 
-#get_letter_from_patterns() {
-#  for letter in {a..z}; do
-#    letter_matches_patterns=true
-#
-#    for arg in "$@"; do
-#        if [[ ! $letter =~ $arg ]]; then
-#          letter_matches_patterns=false
-#          break
-#        fi
-#    done
-#
-#    if [[ $letter_matches_patterns = true ]]; then
-#      echo "$letter"
-#      return 0 # Terminate as soon as a letter matches.
-#    fi
-#  done
-#}
+get_two_letters_from_patterns() {
+  for letters in {a..z}{a..z}; do
+    if (__check_regex_matches "$letters" "$@"); then
+      echo "$letters"
+      return 0 # Terminates on the first match.
+    fi
+  done
+}
+
+get_three_letters_from_patterns() {
+  for letters in {a..z}{a..z}{a..z}; do
+    if (__check_regex_matches "$letters" "$@"); then
+      echo "$letters"
+      return 0 # Terminates on the first match.
+    fi
+  done
+}
+
+get_four_letters_from_patterns() {
+  for letters in {a..z}{a..z}{a..z}{a..z}; do
+    if (__check_regex_matches "$letters" "$@"); then
+      echo "$letters"
+      return 0 # Terminates on the first match.
+    fi
+  done
+}
 
 # A Bash array should be the last argument and only one array can be passed.
 print_rows() {

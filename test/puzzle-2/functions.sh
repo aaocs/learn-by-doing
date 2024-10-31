@@ -33,6 +33,24 @@ test_get_letter_matches_two_groups() {
   assert_equals "$expected" "$actual"
 }
 
+test_get_two_letters_matches() {
+  expected="py"
+  actual=$(get_two_letters_from_patterns '(py|th)')
+  assert_equals "$expected" "$actual"
+}
+
+test_get_three_letters_matches() {
+  expected="adc"
+  actual=$(get_three_letters_from_patterns 'a?d?a?c?')
+  assert_equals "$expected" "$actual"
+}
+
+test_get_four_letters_matches() {
+  expected="dewp"
+  actual=$(get_four_letters_from_patterns '(i|de)[web]{1,2}[path]?')
+  assert_equals "$expected" "$actual"
+}
+
 test_print_rows() {
   expected="$(echo -e "\n| z | a | p | y | o |\n| z | a | p | y | o |")"
   actual=$(print_rows "${letters_array[@]}")
