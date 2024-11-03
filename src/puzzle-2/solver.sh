@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# Puzzle:
+# https://robanderson.dev/regex/
+#
 # Solution:
 # z a p y n
 # l d e w p
