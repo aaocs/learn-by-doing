@@ -15,7 +15,7 @@ class TestStringMethods(unittest.TestCase):
     def test_maximum_sum_example_1(self):
         pyramid_reader = PyramidReader(self.FILE_PATH_PREFIX + 'example1.txt')
 
-        path, distances, max_distance = pyramid_reader.graph.dijkstra('[1][1]', '[4][4]')
+        path, distances, max_distance = pyramid_reader.graph.dijkstra('[1][1]', '[END]')
         print(f"Path: {path}, Distances: {distances}, Maximum Distance: {max_distance}")
 
         self.assertEqual(max_distance, 23)

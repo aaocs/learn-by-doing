@@ -29,6 +29,7 @@ class PyramidReader:
             for j, node in enumerate(row, start=1):
                 graph.add_vertex_data(vertex_counter, '[{0}][{1}]'.format(i, j))
                 vertex_counter += 1
+        graph.add_vertex_data(vertex_counter, '[END]')
 
         # Add edges.
         for i, row in enumerate(all_rows, start=1):
@@ -39,7 +40,7 @@ class PyramidReader:
                 # Vertices are 0-indexed.
                 if i == len(all_rows):
                     # Connect all nodes on the bottom row to the top node.
-                    graph.add_edge(prev_t_num + j - 1, 0, int(all_rows[1][1], 16))
+                    graph.add_edge(prev_t_num + j - 1, vertex_counter, int(all_rows[0][0], 16))
                 else:
                     graph.add_edge(prev_t_num + j - 1, curr_t_num + j - 1, int(all_rows[i][j - 1], 16))
                     graph.add_edge(prev_t_num + j - 1, curr_t_num + j, int(all_rows[i][j], 16))
