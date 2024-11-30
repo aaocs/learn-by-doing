@@ -1,28 +1,21 @@
-# Graph data - Example 0
+from .pyramid_reader_2d import PyramidReader
 
-g = Graph(7)
+FILE_PATH_PREFIX = '/Users/ashley.arain/git-proj/learn-by-doing/src/puzzle_3/res/'
+start_vertex = '[1][1]'
+end_vertex = '[END]'
 
-g.add_vertex_data(0, 'A')
-g.add_vertex_data(1, 'B')
-g.add_vertex_data(2, 'C')
-g.add_vertex_data(3, 'D')
-g.add_vertex_data(4, 'E')
-g.add_vertex_data(5, 'F')
-g.add_vertex_data(6, 'G')
+# Part 1
 
-g.add_edge(0, 1, 3)
-g.add_edge(0, 2, 4)
-g.add_edge(1, 3, 2)
-g.add_edge(1, 4, 1)
-g.add_edge(2, 4, 1)
-g.add_edge(2, 5, 7)
+pyramid_reader = PyramidReader(FILE_PATH_PREFIX + 'part1.txt')
+path, distances, max_distance = pyramid_reader.graph.dijkstra(start_vertex, end_vertex)
 
-start_weight = 5
-g.add_edge(3, 6, start_weight)
-g.add_edge(4, 6, start_weight)
-g.add_edge(5, 6, start_weight)
+print('Part 1:')
+print(f"Path: {path}, Distances: {distances}, Maximum Distance: {max_distance}")
 
-# Runner
+# Part 2
 
-distance, path = g.dijkstra('A', 'G')
-print(f"Path: {path}, Distance: {distance}")
+pyramid_reader = PyramidReader(FILE_PATH_PREFIX + 'part2.txt')
+path, distances, max_distance = pyramid_reader.graph.dijkstra(start_vertex, end_vertex)
+
+print('Part 2:')
+print(f"Path: {path}, Maximum Distance: {max_distance}")
