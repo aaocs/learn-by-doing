@@ -3,9 +3,11 @@ class Graph:
         self.adj_matrix = [[None] * size for _ in range(size)]
         self.size = size
         self.vertex_data = [''] * size
+        self.edge_count = 0
 
     def add_edge(self, u, v, weight):
         self.adj_matrix[u][v] = weight
+        self.edge_count += 1
 
     def add_vertex_data(self, vertex, data):
         if 0 <= vertex < self.size:
