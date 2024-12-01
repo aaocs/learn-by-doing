@@ -1,6 +1,6 @@
 from .graph import Graph
 
-class PyramidReader:
+class PyramidReader2D:
     def __init__(self, file):
         self.file = file
         self.graph = self._construct_graph()
