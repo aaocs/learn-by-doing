@@ -45,6 +45,15 @@ class PyramidReader2D:
                     graph.add_edge(prev_t_num + j - 1, curr_t_num + j - 1, int(all_rows[i][j - 1], 16))
                     graph.add_edge(prev_t_num + j - 1, curr_t_num + j, int(all_rows[i][j], 16))
 
-
-        #print(all_rows)
         return graph
+
+class PyramidReader3D:
+    def __init__(self, file):
+        self.file = file
+        self.graph = self._construct_graph()
+
+    def _pyramid_number(self, n):
+        return n * (n + 1) * ((2 * n) + 1) // 6
+
+    def _construct_graph(self):
+        return Graph(0) # TODO.
