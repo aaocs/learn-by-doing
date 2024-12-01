@@ -25,4 +25,4 @@ Running the solver:
 
 Running the tests:
 * `python3 -m learn-by-doing.test.puzzle_3.graph_test`
-* `python3 -m learn-by-doing.test.puzzle_3.pyramid_reader_2d_test`
+* `python3 -m learn-by-doing.test.puzzle_3.pyramid_reader_test`
