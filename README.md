@@ -26,3 +26,11 @@ Running the solver:
 Running the tests:
 * `python3 -m learn-by-doing.test.puzzle_3.graph_test`
 * `python3 -m learn-by-doing.test.puzzle_3.pyramid_reader_test`
+
+## Matchsticks
+
+https://matchsticks.drnaylor.co.uk/
+
+Running the solver:
+1. `cd learn-by-doing/src/matchsticks`
+2. `python3 -m solver`
